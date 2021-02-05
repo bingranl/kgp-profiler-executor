@@ -52,6 +52,7 @@ fun kotlinBenchmarks() =
                 changeFile(topFile, TypeOfChange.ADD_PRIVATE_FUNCTION)
                 runTasks(Tasks.ANDROID_COMPILE)
             }
+            repeat = 5U
         }
 
         scenario("top incremental compilation with abi change") {
@@ -63,6 +64,7 @@ fun kotlinBenchmarks() =
                 changeFile(topFile, TypeOfChange.ADD_PUBLIC_FUNCTION)
                 runTasks(Tasks.ANDROID_COMPILE)
             }
+            repeat = 5U
         }
 
 
@@ -75,6 +77,7 @@ fun kotlinBenchmarks() =
                 changeFile(middleFile, TypeOfChange.ADD_PRIVATE_FUNCTION)
                 runTasks(Tasks.ANDROID_COMPILE)
             }
+            repeat = 5U
         }
 
         scenario("middle incremental compilation with abi change") {
@@ -86,6 +89,7 @@ fun kotlinBenchmarks() =
                 changeFile(middleFile, TypeOfChange.ADD_PUBLIC_FUNCTION)
                 runTasks(Tasks.ANDROID_COMPILE)
             }
+            repeat = 5U
         }
 
         scenario("leaf incremental compilation with non abi change") {
@@ -98,6 +102,7 @@ fun kotlinBenchmarks() =
                 changeFile(leafFile, TypeOfChange.ADD_PRIVATE_FUNCTION)
                 runTasks(Tasks.ANDROID_COMPILE)
             }
+            repeat = 5U
         }
 
         scenario("leaf incremental compilation with abi change") {
@@ -110,5 +115,6 @@ fun kotlinBenchmarks() =
                 changeFile(leafFile, TypeOfChange.ADD_PUBLIC_FUNCTION)
                 runTasks(Tasks.ANDROID_COMPILE)
             }
+            repeat = 5U
         }
     }
