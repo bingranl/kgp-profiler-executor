@@ -49,6 +49,11 @@ application {
 tasks.withType(JavaExec::class) {
     val benchmarkProjectPath = System.getProperty("project.path")
     setArgsString(benchmarkProjectPath)
+
+//    debugOptions.enabled.set(true)
+//    debugOptions.port.set(5005)
+//    debugOptions.server.set(true)
+//    debugOptions.suspend.set(true)
 }
 
 

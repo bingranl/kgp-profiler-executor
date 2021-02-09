@@ -29,6 +29,7 @@ fun kotlinBenchmarks() =
             "--info",
             "--no-build-cache",
             "--watch-fs",
+            "--max-workers=16",
         )
 
         val parallelBuild = arrayOf(
