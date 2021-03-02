@@ -17,7 +17,6 @@ class ClassAAA {
 	fun method1(
 		param0: com.android.example.module06_module192.ClassAAJ
 	) {
+	    val foo = "bar"
 	}
-
-	private fun foo() {}
 }

@@ -75,7 +75,6 @@ class ClassAAA {
 
 		param0.method0(com.android.example.module06_module352_module3.ClassAAD(), com.android.example.module06_module084.ClassAAC(), com.android.example.module06_module352_module3.ClassAAG(), com.android.example.module06_module298_module1.ClassAAC())
 
+    val foo = "bar"
 	}
-
-	private fun foo() {}
 }

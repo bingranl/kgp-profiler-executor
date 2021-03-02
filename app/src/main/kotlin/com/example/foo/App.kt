@@ -47,10 +47,10 @@ fun kotlinBenchmarks() =
         scenario("top incremental compilation with non abi change") {
             arguments(*parallelBuild)
             step {
-                runTasks(Tasks.ANDROID_COMPILE)
+                runTasks(Tasks.CLEAN, Tasks.ANDROID_COMPILE)
             }
             step {
-                changeFile(topFile, TypeOfChange.ADD_PRIVATE_FUNCTION)
+                changeFile(topFile, TypeOfChange.CHANGE_PUBLIC_FUNCTION_BODY)
                 runTasks(Tasks.ANDROID_COMPILE)
             }
             repeat = 5U
@@ -59,7 +59,7 @@ fun kotlinBenchmarks() =
         scenario("top incremental compilation with abi change") {
             arguments(*parallelBuild)
             step {
-                runTasks(Tasks.ANDROID_COMPILE)
+                runTasks(Tasks.CLEAN, Tasks.ANDROID_COMPILE)
             }
             step {
                 changeFile(topFile, TypeOfChange.ADD_PUBLIC_FUNCTION)
@@ -72,10 +72,10 @@ fun kotlinBenchmarks() =
         scenario("middle incremental compilation with non abi change") {
             arguments(*parallelBuild)
             step {
-                runTasks(Tasks.ANDROID_COMPILE)
+                runTasks(Tasks.CLEAN, Tasks.ANDROID_COMPILE)
             }
             step {
-                changeFile(middleFile, TypeOfChange.ADD_PRIVATE_FUNCTION)
+                changeFile(middleFile, TypeOfChange.CHANGE_PUBLIC_FUNCTION_BODY)
                 runTasks(Tasks.ANDROID_COMPILE)
             }
             repeat = 5U
@@ -84,7 +84,7 @@ fun kotlinBenchmarks() =
         scenario("middle incremental compilation with abi change") {
             arguments(*parallelBuild)
             step {
-                runTasks(Tasks.ANDROID_COMPILE)
+                runTasks(Tasks.CLEAN, Tasks.ANDROID_COMPILE)
             }
             step {
                 changeFile(middleFile, TypeOfChange.ADD_PUBLIC_FUNCTION)
@@ -96,11 +96,10 @@ fun kotlinBenchmarks() =
         scenario("leaf incremental compilation with non abi change") {
             arguments(*parallelBuild)
             step {
-              doNotMeasure()
-              runTasks(Tasks.ANDROID_COMPILE)
+                runTasks(Tasks.CLEAN, Tasks.ANDROID_COMPILE)
             }
             step {
-                changeFile(leafFile, TypeOfChange.ADD_PRIVATE_FUNCTION)
+                changeFile(leafFile, TypeOfChange.CHANGE_PUBLIC_FUNCTION_BODY)
                 runTasks(Tasks.ANDROID_COMPILE)
             }
             repeat = 5U
@@ -109,8 +108,7 @@ fun kotlinBenchmarks() =
         scenario("leaf incremental compilation with abi change") {
             arguments(*parallelBuild)
             step {
-                doNotMeasure()
-                runTasks(Tasks.ANDROID_COMPILE)
+                runTasks(Tasks.CLEAN, Tasks.ANDROID_COMPILE)
             }
             step {
                 changeFile(leafFile, TypeOfChange.ADD_PUBLIC_FUNCTION)

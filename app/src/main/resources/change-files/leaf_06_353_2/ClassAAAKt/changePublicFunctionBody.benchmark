@@ -53,7 +53,6 @@ class ClassAAA {
 	fun method2(
 		param0: String
 	) {
+	  val foo = "bar"
 	}
-
-	private fun foo() {}
 }
